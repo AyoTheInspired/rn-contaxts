@@ -1,5 +1,6 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Contacts from "../screens/Contacts";
 import { Text, View } from "react-native";
 import {
 	CONTACT_DETAIL,
@@ -7,37 +8,9 @@ import {
 	CREATE_CONTACT,
 	SETTINGS,
 } from "../constants/routeNames";
-
-const Contacts = () => {
-	return (
-		<View>
-			<Text>Hello from Contacts</Text>
-		</View>
-	);
-};
-
-const ContactDetails = () => {
-	return (
-		<View>
-			<Text>Hello from ContactDetails</Text>
-		</View>
-	);
-};
-
-const CreateContact = () => {
-	return (
-		<View>
-			<Text>Hello from CreateContact</Text>
-		</View>
-	);
-};
-const Settings = () => {
-	return (
-		<View>
-			<Text>Hello from Settings</Text>
-		</View>
-	);
-};
+import CreateContact from "../screens/CreateContact";
+import Settings from "../screens/Settings";
+import ContactDetails from "../screens/ContactDetails";
 
 function HomeNavigator() {
 	const HomeStack = createNativeStackNavigator();

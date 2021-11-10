@@ -1,23 +1,8 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Text, View } from "react-native";
 import { LOGIN, REGISTER } from "../constants/routeNames";
-
-const Login = () => {
-	return (
-		<View>
-			<Text>Hello from Login</Text>
-		</View>
-	);
-};
-
-const SignUp = () => {
-	return (
-		<View>
-			<Text>Hello from ContactDetails</Text>
-		</View>
-	);
-};
+import Login from "../screens/Login";
+import SignUp from "../screens/SignUp";
 
 function AuthNavigator() {
 	const AuthStack = createNativeStackNavigator();
