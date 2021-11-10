@@ -6,29 +6,26 @@
  * @flow strict-local
  */
 
-import {
-	SafeAreaView,
-	ScrollView,
-	StatusBar,
-	StyleSheet,
-	Text,
-	useColorScheme,
-	View,
-} from "react-native";
-
-import {
-	Colors,
-	DebugInstructions,
-	Header,
-	LearnMoreLinks,
-	ReloadInstructions,
-} from "react-native/Libraries/NewAppScreen";
-import * as React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+import { Text } from "react-native";
 import AppNavContainer from "./src/navigations";
+// import HomeNavigator from "./src/navigations/HomeNavigator";
 
 const App = () => {
-	return <AppNavContainer> </AppNavContainer>;
+	return (
+		<AppNavContainer>
+			<Text
+				style={{
+					marginTop: 50,
+					color: "green",
+					fontSize: 89,
+				}}>
+				Hello from the App
+			</Text>
+
+			{/* <HomeNavigator /> */}
+		</AppNavContainer>
+	);
 };
 
 export default App;
