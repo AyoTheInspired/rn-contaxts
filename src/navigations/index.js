@@ -1,12 +1,15 @@
 import React from "react";
-import { StatusBar, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import AuthNavigator from "./AuthNavigator";
+import HomeNavigator from "./HomeNavigator";
+import DrawerNavigator from "./DrawerNavigator";
 
 const AppNavContainer = () => {
+	const isLoggedIn = false;
+
 	return (
 		<NavigationContainer>
-			<AuthNavigator />
+			{isLoggedIn ? <DrawerNavigator /> : <AuthNavigator />}
 		</NavigationContainer>
 	);
 };
