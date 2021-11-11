@@ -24,4 +24,8 @@ export default StyleSheet.create({
 		paddingTop: 4,
 		fontSize: 14,
 	},
+
+	authLabel: {
+		fontWeight: "500",
+	},
 });

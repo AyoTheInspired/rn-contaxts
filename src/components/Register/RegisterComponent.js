@@ -19,7 +19,7 @@ const RegisterComponent = () => {
 
 			<View>
 				<Text style={styles.title}>Welcome to Contaxts!</Text>
-				<Text style={styles.subTitle}>Please Login Here</Text>
+				<Text style={styles.subTitle}>Create a free account</Text>
 
 				<View style={styles.form}>
 					<Input
@@ -28,6 +28,28 @@ const RegisterComponent = () => {
 						placeholder="Enter Username"
 						// error={"This field is required"}
 					/>
+
+					<Input
+						label="First Name"
+						iconPosition="right"
+						placeholder="Enter First Name"
+						// error={"This field is required"}
+					/>
+
+					<Input
+						label="Last Name"
+						iconPosition="right"
+						placeholder="Enter Last Name"
+						// error={"This field is required"}
+					/>
+
+					<Input
+						label="Email"
+						iconPosition="right"
+						placeholder="you@gmail.com"
+						// error={"This field is required"}
+					/>
+
 					<Input
 						label="Password"
 						icon={<Text>Show</Text>}
@@ -35,6 +57,7 @@ const RegisterComponent = () => {
 						placeholder="Enter Password"
 						secureTextEntry={true}
 					/>
+
 					<Button title="Submit" primary />
 
 					<View style={styles.createSection}>

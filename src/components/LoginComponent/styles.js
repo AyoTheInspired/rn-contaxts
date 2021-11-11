@@ -11,6 +11,7 @@ export default StyleSheet.create({
 
 	title: {
 		fontSize: 23,
+		// color: colors.danger,
 		textAlign: "center",
 		paddingVertical: 20,
 		fontWeight: "500",
@@ -37,7 +38,7 @@ export default StyleSheet.create({
 	},
 
 	linkBtn: {
-		paddingLeft: 17,
+		paddingLeft: 10,
 		fontSize: 16,
 		color: colors.primary,
 	},

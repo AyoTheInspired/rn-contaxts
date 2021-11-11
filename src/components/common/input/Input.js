@@ -39,7 +39,7 @@ const Input = ({
 
 	return (
 		<View style={styles.inputContainer}>
-			{label && <Text> {label} </Text>}
+			{label && <Text style={styles.authLabel}> {label} </Text>}
 
 			<View
 				style={[

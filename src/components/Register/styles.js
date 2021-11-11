@@ -6,20 +6,20 @@ export default StyleSheet.create({
 		height: 150,
 		width: 150,
 		alignSelf: "center",
-		marginTop: 50,
+		marginTop: 20,
 	},
 
 	title: {
 		fontSize: 23,
 		textAlign: "center",
-		paddingVertical: 20,
+		paddingVertical: 10,
 		fontWeight: "500",
 	},
 
 	subTitle: {
 		fontSize: 18,
 		textAlign: "center",
-		paddingVertical: 10,
+		paddingTop: 8,
 		fontWeight: "500",
 	},
 
@@ -37,8 +37,9 @@ export default StyleSheet.create({
 	},
 
 	linkBtn: {
-		paddingLeft: 17,
+		paddingLeft: 10,
 		fontSize: 16,
 		color: colors.primary,
+		// textDecorationLine: "underline",
 	},
 });
