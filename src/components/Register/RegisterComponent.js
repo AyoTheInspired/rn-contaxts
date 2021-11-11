@@ -4,10 +4,10 @@ import { useNavigation } from "@react-navigation/native";
 import Container from "../common/container/Container";
 import Button from "../common/CustomButton/Button";
 import Input from "../common/Input/Input";
+import { LOGIN } from "../../constants/routeNames";
 import styles from "./styles";
-import { REGISTER } from "../../constants/routeNames";
 
-const LoginComponent = () => {
+const RegisterComponent = () => {
 	const { navigate } = useNavigation();
 
 	return (
@@ -38,9 +38,9 @@ const LoginComponent = () => {
 					<Button title="Submit" primary />
 
 					<View style={styles.createSection}>
-						<Text style={styles.infoText}>Need a new account?</Text>
-						<TouchableOpacity onPress={() => navigate(REGISTER)}>
-							<Text style={styles.linkBtn}>Register</Text>
+						<Text style={styles.infoText}>Already have an account?</Text>
+						<TouchableOpacity onPress={() => navigate(LOGIN)}>
+							<Text style={styles.linkBtn}>Login</Text>
 						</TouchableOpacity>
 					</View>
 				</View>
@@ -49,4 +49,4 @@ const LoginComponent = () => {
 	);
 };
 
-export default LoginComponent;
+export default RegisterComponent;
