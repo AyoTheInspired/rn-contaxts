@@ -39,7 +39,7 @@ const Input = ({
 
 	return (
 		<View style={styles.inputContainer}>
-			{label && <Text style={styles.authLabel}> {label} </Text>}
+			{label && <Text> {label} </Text>}
 
 			<View
 				style={[
@@ -47,7 +47,7 @@ const Input = ({
 					{ alignItems: icon ? "center" : "baseline" },
 					{ borderColor: getBorderColor(), flexDirection: getFlexDirection() },
 				]}>
-				<View>{icon && icon}</View>
+				<View style={styles.authIcon}>{icon && icon}</View>
 				<TextInput
 					style={[styles.textInput, style]}
 					onChangeText={onChangeText}
