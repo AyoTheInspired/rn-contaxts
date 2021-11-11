@@ -11,7 +11,6 @@ import "react-native-gesture-handler";
 import React from "react";
 import AppNavContainer from "./src/navigations";
 import GlobalProvider from "./src/context/Provider";
-// import HomeNavigator from "./src/navigations/HomeNavigator";
 
 const App = () => {
 	return (
