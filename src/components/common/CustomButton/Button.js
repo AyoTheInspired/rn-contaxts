@@ -32,7 +32,7 @@ const Button = ({
 
 	return (
 		<TouchableOpacity
-			onPress
+			onPress={onPress}
 			disabled={disabled}
 			style={[styles.wrapper, { backgroundColor: getBackgroundColor() }]}>
 			<View style={styles.loaderSection}>

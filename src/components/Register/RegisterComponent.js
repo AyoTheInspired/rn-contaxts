@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Text, Image, View, TouchableOpacity } from "react-native";
+import {
+	Text,
+	Image,
+	View,
+	TouchableOpacity,
+	Button as RButton,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Container from "../common/container/Container";
 import Button from "../common/CustomButton/Button";
@@ -7,7 +13,7 @@ import Input from "../common/Input/Input";
 import { LOGIN } from "../../constants/routeNames";
 import styles from "./styles";
 
-const RegisterComponent = () => {
+const RegisterComponent = ({ form, errors, onSubmit, onChange }) => {
 	const { navigate } = useNavigation();
 
 	return (
@@ -26,28 +32,40 @@ const RegisterComponent = () => {
 						label="Username"
 						iconPosition="right"
 						placeholder="Enter Username"
-						// error={"This field is required"}
+						onChangeText={(value) => {
+							onChange({ name: "userName", value });
+						}}
+						error={errors.userName}
 					/>
 
 					<Input
 						label="First Name"
 						iconPosition="right"
 						placeholder="Enter First Name"
-						// error={"This field is required"}
+						onChangeText={(value) => {
+							onChange({ name: "firstName", value });
+						}}
+						error={errors.firstName}
 					/>
 
 					<Input
 						label="Last Name"
 						iconPosition="right"
 						placeholder="Enter Last Name"
-						// error={"This field is required"}
+						onChangeText={(value) => {
+							onChange({ name: "lastName", value });
+						}}
+						error={errors.lastName}
 					/>
 
 					<Input
 						label="Email"
 						iconPosition="right"
 						placeholder="you@gmail.com"
-						// error={"This field is required"}
+						onChangeText={(value) => {
+							onChange({ name: "email", value });
+						}}
+						error={errors.email}
 					/>
 
 					<Input
@@ -56,9 +74,15 @@ const RegisterComponent = () => {
 						iconPosition="right"
 						placeholder="Enter Password"
 						secureTextEntry={true}
+						onChangeText={(value) => {
+							onChange({ name: "password", value });
+						}}
+						error={errors.password}
 					/>
 
-					<Button title="Submit" primary />
+					{/* <TouchableOpacity> */}
+					<Button title="Submit" onPress={onSubmit} primary />
+					{/* </TouchableOpacity> */}
 
 					<View style={styles.createSection}>
 						<Text style={styles.infoText}>Already have an account?</Text>
@@ -73,3 +97,12 @@ const RegisterComponent = () => {
 };
 
 export default RegisterComponent;
+
+// <RButton
+// 	primary
+// 	title="Submit"
+// 	onPress={(event) => {
+// 		onSubmit(event);
+// 	}}>
+// 	{/* <Button title="Submit" primary /> */}
+// </RButton>;
