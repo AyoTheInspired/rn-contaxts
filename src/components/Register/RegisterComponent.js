@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-	Text,
-	Image,
-	View,
-	TouchableOpacity,
-	Button as RButton,
-} from "react-native";
+import { Text, Image, View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Container from "../common/container/Container";
 import Button from "../common/CustomButton/Button";
@@ -61,7 +55,7 @@ const RegisterComponent = ({ form, errors, onSubmit, onChange }) => {
 					<Input
 						label="Email"
 						iconPosition="right"
-						placeholder="you@gmail.com"
+						placeholder="you@domain.com"
 						onChangeText={(value) => {
 							onChange({ name: "email", value });
 						}}
@@ -80,9 +74,7 @@ const RegisterComponent = ({ form, errors, onSubmit, onChange }) => {
 						error={errors.password}
 					/>
 
-					{/* <TouchableOpacity> */}
 					<Button title="Submit" onPress={onSubmit} primary />
-					{/* </TouchableOpacity> */}
 
 					<View style={styles.createSection}>
 						<Text style={styles.infoText}>Already have an account?</Text>
@@ -97,12 +89,3 @@ const RegisterComponent = ({ form, errors, onSubmit, onChange }) => {
 };
 
 export default RegisterComponent;
-
-// <RButton
-// 	primary
-// 	title="Submit"
-// 	onPress={(event) => {
-// 		onSubmit(event);
-// 	}}>
-// 	{/* <Button title="Submit" primary /> */}
-// </RButton>;
