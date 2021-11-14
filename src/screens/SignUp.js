@@ -1,21 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import RegisterComponent from "../components/Register/RegisterComponent";
-import envs from "../config/env";
+import register from "../context/actions/auth/register";
+import { GlobalContext } from "../context/Provider";
 
 function Register() {
 	const [form, setForm] = useState({});
 
 	const [errors, setErrors] = useState({});
 
+	const {
+		authDispatch,
+		authState: { error, loading, data },
+	} = useContext(GlobalContext);
+
 	const onChange = ({ name, value }) => {
 		setForm({ ...form, [name]: value });
 
 		if (value !== "") {
 			if (name === "password") {
-				if (value.length < 6) {
+				if (value.length < 3) {
 					setErrors({
 						...errors,
-						[name]: "Password should be at least 6 characters",
+						[name]: "Password should be at least 3 characters",
 					});
 				} else {
 					setErrors({ ...errors, [name]: null });
@@ -23,24 +29,14 @@ function Register() {
 			} else {
 				setErrors({ ...errors, [name]: null });
 			}
-		}
-
-		if (name === "email") {
-			if (!value.includes("@")) {
-				setErrors({ ...errors, [name]: "Email is invalid" });
-			}
 		} else {
 			setErrors({ ...errors, [name]: "This field is required" });
 		}
 	};
 
 	const onSubmit = () => {
-		console.log("Form >>> ", form);
-
 		if (!form.userName) {
-			setErrors((prev) => {
-				return { ...prev, userName: "Please enter a Username" };
-			});
+			setErrors({ ...errors, userName: "Please enter a Username" });
 		}
 
 		if (!form.firstName) {
@@ -64,6 +60,14 @@ function Register() {
 				return { ...prev, password: "Please enter a password" };
 			});
 		}
+
+		if (
+			Object.values(form).length === 5 &&
+			Object.values(form).every((item) => item.trim().length > 0) &&
+			Object.values(errors).every((item) => !item)
+		) {
+			register(form)(authDispatch);
+		}
 	};
 
 	return (
@@ -72,6 +76,8 @@ function Register() {
 			errors={errors}
 			onSubmit={onSubmit}
 			onChange={onChange}
+			error={error}
+			loading={loading}
 		/>
 	);
 }

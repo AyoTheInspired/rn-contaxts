@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Text, Image, View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Container from "../common/container/Container";
@@ -6,9 +6,13 @@ import Button from "../common/CustomButton/Button";
 import Input from "../common/Input/Input";
 import styles from "./styles";
 import { REGISTER } from "../../constants/routeNames";
+import { GlobalContext } from "../../context/Provider";
 
 const LoginComponent = () => {
 	const { navigate } = useNavigation();
+	const state = useContext(GlobalContext);
+
+	// console.log(state);
 
 	return (
 		<Container>

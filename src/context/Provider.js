@@ -1,13 +1,13 @@
 import React, { createContext, useReducer } from "react";
 import authReducer from "./reducers/authReducer";
-import authState from "./initialStates/authState";
+import authInitialState from "./initialStates/authState";
 import contactsState from "./initialStates/contactsState";
 import contactsReducer from "./reducers/contactsReducer";
 
 export const GlobalContext = createContext({});
 
 const GlobalProvider = ({ children }) => {
-	const [auth, authDispatch] = useReducer(authReducer, authState);
+	const [authState, authDispatch] = useReducer(authReducer, authInitialState);
 	const [contacts, contactsDispatch] = useReducer(
 		contactsReducer,
 		contactsState
@@ -16,7 +16,7 @@ const GlobalProvider = ({ children }) => {
 	return (
 		<GlobalContext.Provider
 			value={{
-				auth,
+				authState,
 				contacts,
 				authDispatch,
 				contactsDispatch,

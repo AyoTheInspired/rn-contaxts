@@ -6,7 +6,7 @@ import { GlobalContext } from "../context/Provider";
 
 const AppNavContainer = () => {
 	const {
-		auth: { isLoggedIn },
+		authState: { isLoggedIn },
 	} = useContext(GlobalContext);
 
 	return (
