@@ -1,14 +1,21 @@
 import {
+	CLEAR_AUTH_STATE,
 	REGISTER_FAILURE,
 	REGISTER_LOADING,
 	REGISTER_SUCCESS,
 } from "../../../constants/actionTypes";
 import axiosInstance from "../../../helpers/axiosInterceptors";
 
+export const clearAuthState = () => (dispatch) => {
+	dispatch({
+		type: CLEAR_AUTH_STATE,
+	});
+};
+
 export default ({
 		email,
 		password,
-		userName,
+		username,
 		firstName: first_name,
 		lastName: last_name,
 	}) =>
@@ -20,13 +27,11 @@ export default ({
 			.post("/auth/register", {
 				email,
 				password,
-				userName,
+				username,
 				first_name,
 				last_name,
 			})
 			.then((res) => {
-				console.log("res", res);
-
 				dispatch({
 					type: REGISTER_SUCCESS,
 					paylod: res.data,

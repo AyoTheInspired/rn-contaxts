@@ -10,9 +10,11 @@ import { GlobalContext } from "../../context/Provider";
 
 const LoginComponent = () => {
 	const { navigate } = useNavigation();
-	const state = useContext(GlobalContext);
 
-	// console.log(state);
+	const {
+		authDispatch,
+		authState: { error, loading, data },
+	} = useContext(GlobalContext);
 
 	return (
 		<Container>

@@ -6,7 +6,6 @@ import Button from "../common/CustomButton/Button";
 import Input from "../common/Input/Input";
 import { LOGIN } from "../../constants/routeNames";
 import styles from "./styles";
-import env from "../../config/env";
 
 const RegisterComponent = ({
 	form,
@@ -30,16 +29,16 @@ const RegisterComponent = ({
 				<Text style={styles.subTitle}>Create a free account</Text>
 
 				<View style={styles.form}>
-					{error.error && <Text>{error.error}</Text>}
+					{error?.error && <Text>{error.error}</Text>}
 
 					<Input
 						label="Username"
 						iconPosition="right"
 						placeholder="Enter Username"
+						error={errors.username || error?.username?.[0]}
 						onChangeText={(value) => {
-							onChange({ name: "userName", value });
+							onChange({ name: "username", value });
 						}}
-						error={errors.userName || error?.username?.[0]}
 					/>
 
 					<Input
@@ -91,8 +90,6 @@ const RegisterComponent = ({
 						onPress={onSubmit}
 						primary
 					/>
-
-					{console.log("url", env.DEV_BACKEND_URL)}
 
 					<View style={styles.createSection}>
 						<Text style={styles.infoText}>Already have an account?</Text>

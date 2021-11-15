@@ -15,7 +15,7 @@ const Input = ({
 }) => {
 	const [focused, setFocused] = useState(false);
 
-	function getFlexDirection() {
+	const getFlexDirection = () => {
 		if (icon && iconPosition) {
 			if (iconPosition === "left") {
 				return "row";
@@ -23,9 +23,9 @@ const Input = ({
 				return "row-reverse";
 			}
 		}
-	}
+	};
 
-	function getBorderColor() {
+	const getBorderColor = () => {
 		if (error) {
 			return colors.danger;
 		}
@@ -35,7 +35,7 @@ const Input = ({
 		} else {
 			return colors.grey;
 		}
-	}
+	};
 
 	return (
 		<View style={styles.inputContainer}>
@@ -48,6 +48,7 @@ const Input = ({
 					{ borderColor: getBorderColor(), flexDirection: getFlexDirection() },
 				]}>
 				<View style={styles.authIcon}>{icon && icon}</View>
+
 				<TextInput
 					style={[styles.textInput, style]}
 					onChangeText={onChangeText}
