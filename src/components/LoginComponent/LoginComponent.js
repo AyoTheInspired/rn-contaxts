@@ -7,6 +7,7 @@ import Input from "../common/Input/Input";
 import styles from "./styles";
 import { REGISTER } from "../../constants/routeNames";
 import { GlobalContext } from "../../context/Provider";
+import Message from "../common/Message/Message";
 
 const LoginComponent = () => {
 	const { navigate } = useNavigation();
@@ -27,12 +28,24 @@ const LoginComponent = () => {
 				<Text style={styles.title}>Welcome to Contaxts!</Text>
 				<Text style={styles.subTitle}>Please Login Here</Text>
 
+				<Message
+					retry
+					retryFn={() => {
+						console.log("Retrying...");
+					}}
+					onDismiss={() => {}}
+					message="Invalid Credentials"
+					primary
+				/>
+				<Message message="Invalid Credentials" danger />
+				<Message message="Invalid Credentials" primary />
+				<Message message="Invalid Credentials" info />
+
 				<View style={styles.form}>
 					<Input
 						label="Username"
 						iconPosition="right"
 						placeholder="Enter Username"
-						// error={"This field is required"}
 					/>
 					<Input
 						label="Password"
