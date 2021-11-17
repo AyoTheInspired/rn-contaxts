@@ -14,6 +14,8 @@ const LoginComponent = ({ form, onSubmit, error, onChange, loading }) => {
 	return (
 		<Container>
 			<Image
+				height={70}
+				width={70}
 				source={require("../../assets/images/logo.png")}
 				style={styles.logoImage}
 			/>

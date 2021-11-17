@@ -7,7 +7,7 @@ function Login() {
 	const [form, setForm] = useState({});
 	const {
 		authDispatch,
-		authState: { error, loading, data },
+		authState: { error, loading },
 	} = useContext(GlobalContext);
 
 	const onChange = ({ name, value }) => {

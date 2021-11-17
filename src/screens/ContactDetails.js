@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 function ContactDetails() {
 	return (
 		<View>
-			<Text>Hello from ContactDetails</Text>
+			<Text>Hello from Contact Details</Text>
 		</View>
 	);
 }
