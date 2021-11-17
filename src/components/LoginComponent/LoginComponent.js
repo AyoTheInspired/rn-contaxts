@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { Text, Image, View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Container from "../common/container/Container";
@@ -6,7 +6,6 @@ import Button from "../common/CustomButton/Button";
 import Input from "../common/Input/Input";
 import styles from "./styles";
 import { REGISTER } from "../../constants/routeNames";
-import { GlobalContext } from "../../context/Provider";
 import Message from "../common/Message/Message";
 
 const LoginComponent = ({ form, onSubmit, error, onChange, loading }) => {
@@ -23,16 +22,14 @@ const LoginComponent = ({ form, onSubmit, error, onChange, loading }) => {
 				<Text style={styles.title}>Welcome to Contaxts!</Text>
 				<Text style={styles.subTitle}>Please Login Here</Text>
 				<View style={styles.form}>
-					{error && !error.error && (
+					{/* {error && !error.error && (
 						<Message
 							onDismiss={() => {}}
 							danger
 							message="Invalid Credentials"
 						/>
-					)}
-
+					)} */}
 					{error?.error && <Message message={error.error} danger onDismiss />}
-
 					<Input
 						label="Username"
 						iconPosition="right"

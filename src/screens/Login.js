@@ -1,12 +1,10 @@
 import React, { useContext, useState } from "react";
-import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import LoginComponent from "../components/LoginComponent/LoginComponent";
 import { GlobalContext } from "../context/Provider";
 import loginUser from "../context/actions/auth/loginUser";
 
 function Login() {
 	const [form, setForm] = useState({});
-	const { navigate } = useNavigation();
 	const {
 		authDispatch,
 		authState: { error, loading, data },
