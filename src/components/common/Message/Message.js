@@ -47,7 +47,6 @@ const Message = ({
 						<Text
 							style={{
 								color: colors.white,
-								alignSelf: "center",
 							}}>
 							{message}{" "}
 						</Text>

@@ -9,13 +9,8 @@ import { REGISTER } from "../../constants/routeNames";
 import { GlobalContext } from "../../context/Provider";
 import Message from "../common/Message/Message";
 
-const LoginComponent = () => {
+const LoginComponent = ({ form, onSubmit, error, onChange, loading }) => {
 	const { navigate } = useNavigation();
-
-	const {
-		authDispatch,
-		authState: { error, loading, data },
-	} = useContext(GlobalContext);
 
 	return (
 		<Container>
@@ -27,34 +22,38 @@ const LoginComponent = () => {
 			<View>
 				<Text style={styles.title}>Welcome to Contaxts!</Text>
 				<Text style={styles.subTitle}>Please Login Here</Text>
-
-				<Message
-					retry
-					retryFn={() => {
-						console.log("Retrying...");
-					}}
-					onDismiss={() => {}}
-					message="Invalid Credentials"
-					primary
-				/>
-				<Message message="Invalid Credentials" danger />
-				<Message message="Invalid Credentials" primary />
-				<Message message="Invalid Credentials" info />
-
 				<View style={styles.form}>
+					{error && !error.error && (
+						<Message
+							onDismiss={() => {}}
+							danger
+							message="Invalid Credentials"
+						/>
+					)}
+
+					{error?.error && <Message message={error.error} danger onDismiss />}
+
 					<Input
 						label="Username"
 						iconPosition="right"
 						placeholder="Enter Username"
+						onChangeText={(value) => {
+							onChange({ name: "username", value });
+						}}
 					/>
+
 					<Input
 						label="Password"
 						icon={<Text>Show</Text>}
 						iconPosition="right"
 						placeholder="Enter Password"
+						onChangeText={(value) => {
+							onChange({ name: "password", value });
+						}}
 						secureTextEntry={true}
 					/>
-					<Button title="Submit" primary />
+
+					<Button onPress={onSubmit} title="Submit" primary />
 
 					<View style={styles.createSection}>
 						<Text style={styles.infoText}>Need a new account?</Text>

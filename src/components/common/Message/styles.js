@@ -3,13 +3,14 @@ import colors from "../../../assets/theme/colors";
 
 export default StyleSheet.create({
 	wrapper: {
-		height: 42,
+		height: 40,
 		borderRadius: 4,
 		paddingHorizontal: 8,
 		paddingVertical: 5,
 		marginVertical: 5,
-		// alignItems: "center",
-		// justifyContent: "space-evenly",
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
 	},
 
 	loaderSection: {

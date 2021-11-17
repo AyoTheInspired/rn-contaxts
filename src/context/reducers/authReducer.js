@@ -1,5 +1,8 @@
 import {
 	CLEAR_AUTH_STATE,
+	LOGIN_FAILURE,
+	LOGIN_LOADING,
+	LOGIN_SUCCESS,
 	REGISTER_FAILURE,
 	REGISTER_LOADING,
 	REGISTER_SUCCESS,
@@ -7,10 +10,19 @@ import {
 
 const authReducer = (state, { type, payload }) => {
 	switch (type) {
+		case LOGIN_LOADING:
 		case REGISTER_LOADING:
 			return {
 				...state,
 				loading: true,
+			};
+
+		case LOGIN_SUCCESS:
+			return {
+				...state,
+				loading: false,
+				data: payload,
+				isLoggedIn: true,
 			};
 
 		case REGISTER_SUCCESS:
@@ -20,6 +32,7 @@ const authReducer = (state, { type, payload }) => {
 				data: payload,
 			};
 
+		case LOGIN_FAILURE:
 		case REGISTER_FAILURE:
 			return {
 				...state,
@@ -32,7 +45,7 @@ const authReducer = (state, { type, payload }) => {
 				...state,
 				loading: false,
 				data: null,
-				// error: null,
+				error: null,
 			};
 
 		default:
